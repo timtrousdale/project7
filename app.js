@@ -15,6 +15,7 @@ const connection = mysql.createConnection({
     user: "root",
     password: "1Woodenskelf!",
     database: "usermanager",
+
     socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
 });
 
