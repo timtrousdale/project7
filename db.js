@@ -8,20 +8,7 @@ const state = {
     db: null
 };
 
-const defaultUsers = [
-    { name: "Billy", email: "Billy@bob.com", age: 23 },
-    { name: "Jane", email: "Jane@yahoo.com", age: 55 },
-    { name: "Wendy", email: "Wendy@aol.com", age: 65 },
-    { name: "Tim", email: "billy@gmail.com", age: 34 },
-    { name: "Sam", email: "Tim@bob.gmail", age: 26 },
-    { name: "John", email: "John@bob.aol", age: 62 },
-    { name: "Billy", email: "Billy@hotmail.com", age: 73 },
-    { name: "Meg", email: "Meg@yahoo.com", age: 24 },
-    { name: "Cassandra", email: "Cassandra@gmail.com", age: 35 },
-    { name: "Thomas", email: "Thomas@gmail.com", age: 45 },
-    { name: "Brian", email: "Brian@aol.com", age: 44 },
 
-];
 
 // MongoClient.connect(url, function(err, client) {
 //     assert.equal(null, err);
