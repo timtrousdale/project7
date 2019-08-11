@@ -14,7 +14,8 @@ const connection = mysql.createConnection({
     port: 3306,
     user: "root",
     password: "1Woodenskelf!",
-    database: "usermanager"
+    database: "usermanager",
+    socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
 });
 
 const defaultUsers = [
