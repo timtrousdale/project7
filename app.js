@@ -1,9 +1,17 @@
 const express = require('express');
 const app = express();
 let id;
+const { Client } = require('pg');
 
-const PORT = process.env.PORT;
-// const PORT = process.env.PORT || 8080;
+const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+});
+
+client.connect();
+
+// const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 const mysql = require('mysql');
 
@@ -72,10 +80,10 @@ app.listen(PORT, () => {
 });
 
 
-app.get('/', (req, res) => {
-    // res.sendFile(path.join(__dirname, 'index.html'));
-
-});
+// app.get('/', (req, res) => {
+//     // res.sendFile(path.join(__dirname, 'index.html'));
+//
+// });
 
 app.get('/getUsers', (req, res) => {
 
