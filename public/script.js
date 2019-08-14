@@ -2,7 +2,7 @@ console.log('you got the js');
 let users = [];
 const output = $("#output");
 const first = $("#first");
-const last =  $("#last");
+const last = $("#last");
 const email = $("#email");
 const age = $("#age");
 
@@ -60,9 +60,9 @@ const resetUserInputs = () => {
 
 const newUser = (e) => {
     e.preventDefault();
-    let status ;
+    let status;
 
-    if ( first.val() === '' || last.val() === '' || email.val() === '' || age.val() == 0){
+    if ( first.val() === '' || last.val() === '' || email.val() === '' || age.val() == 0 ) {
         message(`Invalid user input`);
     } else {
         fetch('/api/newuser', {
@@ -95,7 +95,7 @@ const updateUser = (user) => {
     let email = user.find('.email').val();
     let age = user.find('.age').val();
 
-    if ( first === '' || last === '' || email === '' || age == 0){
+    if ( first === '' || last === '' || email === '' || age == 0 ) {
         message(`Invalid user`);
     } else {
         fetch(`/api/${userID}`, {
@@ -144,6 +144,8 @@ const deleteUser = (user) => {
 const aToZ = function (e, name) {
     e.preventDefault();
 
+    $("#searchByLast").val('');
+    $("#searchByFirst").val('');
 
     users.sort((a, b) => (a[name].toLowerCase() > b[name].toLowerCase()) ? 1 : (a[name].toLowerCase() === b[name].toLowerCase()) ? ((a.age > b.age) ? 1 : -1) : -1);
 
@@ -155,6 +157,9 @@ const aToZ = function (e, name) {
 const zToA = function (e, name) {
     e.preventDefault();
 
+    $("#searchByLast").val('');
+    $("#searchByFirst").val('');
+
     users.sort((a, b) => (a[name].toLowerCase() < b[name].toLowerCase()) ? 1 : (a[name].toLowerCase() === b[name].toLowerCase()) ? ((a.age < b.age) ? 1 : -1) : -1);
 
     output.empty();
@@ -165,9 +170,13 @@ const zToA = function (e, name) {
 const filter = (e, input, name) => {
     e.preventDefault();
 
+    if ( name === 'first' )
+        $("#searchByLast").val('');
+    else
+        $("#searchByFirst").val('');
+
     let array = users.filter(user => user[name].toLowerCase().includes(input.toLowerCase()));
 
     output.empty();
     displayUsers(array);
-
 };

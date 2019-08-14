@@ -45,8 +45,8 @@
       <button onclick="aToZ(event, 'last')">Last Name: A - Z</button>
       <button onclick="zToA(event, 'first')">First Name: Z - A</button>
       <button onclick="zToA(event, 'last')">Last Name: Z - A</button>
-      <input type="text" onkeyup="filter(event, $(this).val(), 'first')" placeholder="Search First Names">
-    <input type="text" onkeyup="filter(event, $(this).val(), 'last')" placeholder="Search Last Names">
+      <input id="searchByFirst" type="text" onkeyup="filter(event, $(this).val(), 'first')" placeholder="Search First Names">
+    <input id="searchBylast" type="text" onkeyup="filter(event, $(this).val(), 'last')" placeholder="Search Last Names">
     </div>
 
 
