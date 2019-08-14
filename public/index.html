@@ -37,13 +37,17 @@
         <input type="number" class="form-control" id="age" placeholder="18+">
 
         <button onclick="newUser(event)" class="btn btn-primary">Create</button>
-      </div>
-      <div class="flex-row">
-        <button onclick="aToZ(event)">A - Z</button>
-        <button onclick="zToA(event)">Z - A</button>
-        <input type="text" onkeyup="filter(event, $(this).val())" placeholder="Search Names"></div>
 
+      </div>
     </form>
+    <div class="flex-row">
+      <button onclick="aToZ(event, 'first')">First Name: A - Z</button>
+      <button onclick="aToZ(event, 'last')">Last Name: A - Z</button>
+      <button onclick="zToA(event, 'first')">First Name: Z - A</button>
+      <button onclick="zToA(event, 'last')">Last Name: Z - A</button>
+      <input type="text" onkeyup="filter(event, $(this).val(), 'first')" placeholder="Search First Names">
+    <input type="text" onkeyup="filter(event, $(this).val(), 'last')" placeholder="Search Last Names">
+    </div>
 
 
   </div>

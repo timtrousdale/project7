@@ -141,17 +141,18 @@ const deleteUser = (user) => {
     });
 };
 
-const aToZ = function (e) {
+const aToZ = function (e, name) {
     e.preventDefault();
 
-    users.sort((a, b) => (a.last.toLowerCase() > b.last.toLowerCase()) ? 1 : (a.last.toLowerCase() === b.last.toLowerCase()) ? ((a.age > b.age) ? 1 : -1) : -1);
+
+    users.sort((a, b) => (a[name].toLowerCase() > b[name].toLowerCase()) ? 1 : (a[name].toLowerCase() === b[name].toLowerCase()) ? ((a.age > b.age) ? 1 : -1) : -1);
 
     output.empty();
     displayUsers(users);
 };
 
 
-const zToA = function (e) {
+const zToA = function (e, name) {
     e.preventDefault();
 
     users.sort((a, b) => (a.last.toLowerCase() < b.last.toLowerCase()) ? 1 : (a.last.toLowerCase() === b.last.toLowerCase()) ? ((a.age < b.age) ? 1 : -1) : -1);
@@ -161,10 +162,10 @@ const zToA = function (e) {
 };
 
 
-const filter = (e, input) => {
+const filter = (e, input, name) => {
     e.preventDefault();
 
-    let array = users.filter(user => user.last.toLowerCase().includes(input.toLowerCase()));
+    let array = users.filter(user => user[name].toLowerCase().includes(input.toLowerCase()));
 
     output.empty();
     displayUsers(array);
