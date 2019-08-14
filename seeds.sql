@@ -1,4 +1,4 @@
-insert into Users (first, second, email, age)
+insert into Users (first, last, email, age)
 values ('Billy', 'Bob', 'Billy@bob.com', 23),
         ('Jane', 'Oliver', 'Jane@yahoo.com', 55),
         ('Wendy', 'Thomas', 'Wendy@aol.com', 34),
