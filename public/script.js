@@ -155,7 +155,7 @@ const aToZ = function (e, name) {
 const zToA = function (e, name) {
     e.preventDefault();
 
-    users.sort((a, b) => (a.last.toLowerCase() < b.last.toLowerCase()) ? 1 : (a.last.toLowerCase() === b.last.toLowerCase()) ? ((a.age < b.age) ? 1 : -1) : -1);
+    users.sort((a, b) => (a[name].toLowerCase() < b[name].toLowerCase()) ? 1 : (a[name].toLowerCase() === b[name].toLowerCase()) ? ((a.age < b.age) ? 1 : -1) : -1);
 
     output.empty();
     displayUsers(users);
