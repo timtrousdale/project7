@@ -34,7 +34,7 @@ app.get("/api/users", (req, res) => {
 
 app.post('/api/newuser', (req, res) => {
     const userInput = req.body;
-    let sql = `INSERT INTO users (name, email, age) VALUES ('${userInput.name}', '${userInput.email}', ${userInput.age})`;
+    let sql = `INSERT INTO users (first, last, email, age) VALUES ('${userInput.first}', '${userInput.last}', '${userInput.email}', ${userInput.age})`;
 
     client.query(sql, (err) => {
         if ( err )
@@ -50,7 +50,7 @@ app.put('/api/:id', (req, res) => {
     const userID = req.params.id;
     const userInput = req.body;
 
-    let sql = `UPDATE users SET name = '${userInput.name}', email = '${userInput.email}', age = ${userInput.age} WHERE id = ${userID};`;
+    let sql = `UPDATE users SET first = '${userInput.first}', last = '${userInput.last}', email = '${userInput.email}', age = ${userInput.age} WHERE id = ${userID};`;
 
     client.query(sql, (err) => {
         if ( err )

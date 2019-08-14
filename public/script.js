@@ -1,7 +1,8 @@
 console.log('you got the js');
 let users = [];
 const output = $("#output");
-const name = $("#name");
+const first = $("#first");
+const last =  $("#last");
 const email = $("#email");
 const age = $("#age");
 
@@ -21,7 +22,8 @@ const buildTemplate = (user) => {
     return `<li class="list-group-item">
 				<div>
 					<div id="user_${user.id}" class="flex-row">
-						<input class="name" type="text"  value="${user.name}">
+						<input class="first" type="text"  value="${user.first}">
+						<input class="last" type="text"  value="${user.last}">
 						<input class="email" type="email" value="${user.email}">
 						<input class="age" type="number" value="${user.age}">
 
@@ -50,7 +52,8 @@ const getUsers = () => {
 getUsers();
 
 const resetUserInputs = () => {
-    name.val('');
+    first.val('');
+    last.val('');
     email.val('');
     age.val('');
 };
@@ -59,13 +62,14 @@ const newUser = (e) => {
     e.preventDefault();
     let status ;
 
-    if ( name.val() === '' || email.val() === '' || age.val() == 0){
+    if ( first.val() === '' || last.val() === '' || email.val() === '' || age.val() == 0){
         message(`Invalid user input`);
     } else {
         fetch('/api/newuser', {
             method: 'post',
             body: JSON.stringify({
-                name: name.val(),
+                first: first.val(),
+                last: last.val(),
                 email: email.val(),
                 age: age.val()
             }),
@@ -86,11 +90,12 @@ const newUser = (e) => {
 
 const updateUser = (user) => {
     let userID = user.attr("id").substring(5);
-    let name = user.find('.name').val();
+    let first = user.find('.first').val();
+    let last = user.find('.last').val();
     let email = user.find('.email').val();
     let age = user.find('.age').val();
 
-    if ( name === '' || email === '' || age == 0){
+    if ( first === '' || last === '' || email === '' || age == 0){
         message(`Invalid user`);
     } else {
         fetch(`/api/${userID}`, {
@@ -99,7 +104,8 @@ const updateUser = (user) => {
                 "Content-Type": "application/json; charset=utf-8"
             },
             body: JSON.stringify({
-                name: name || '',
+                first: first || '',
+                last: last || '',
                 email: email || '',
                 age: age || 0
             })
@@ -138,7 +144,7 @@ const deleteUser = (user) => {
 const aToZ = function (e) {
     e.preventDefault();
 
-    users.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : (a.name.toLowerCase() === b.name.toLowerCase()) ? ((a.age > b.age) ? 1 : -1) : -1);
+    users.sort((a, b) => (a.last.toLowerCase() > b.last.toLowerCase()) ? 1 : (a.last.toLowerCase() === b.last.toLowerCase()) ? ((a.age > b.age) ? 1 : -1) : -1);
 
     output.empty();
     displayUsers(users);
@@ -148,7 +154,7 @@ const aToZ = function (e) {
 const zToA = function (e) {
     e.preventDefault();
 
-    users.sort((a, b) => (a.name.toLowerCase() < b.name.toLowerCase()) ? 1 : (a.name.toLowerCase() === b.name.toLowerCase()) ? ((a.age < b.age) ? 1 : -1) : -1);
+    users.sort((a, b) => (a.last.toLowerCase() < b.last.toLowerCase()) ? 1 : (a.last.toLowerCase() === b.last.toLowerCase()) ? ((a.age < b.age) ? 1 : -1) : -1);
 
     output.empty();
     displayUsers(users);
@@ -158,7 +164,7 @@ const zToA = function (e) {
 const filter = (e, input) => {
     e.preventDefault();
 
-    let array = users.filter(user => user.name.toLowerCase().includes(input.toLowerCase()));
+    let array = users.filter(user => user.last.toLowerCase().includes(input.toLowerCase()));
 
     output.empty();
     displayUsers(array);
