@@ -7,7 +7,7 @@ values ('Billy', 'Bob', 'Billy@bob.com', 23),
         ('joel', 'Rogan', 'joel@aol.aol', 62),
         ('Bob', 'Billy', 'Bob@hotmail.com', 73),
         ('Meg', 'Markle', 'Meg@yahoo.com', 24),
-        ('Cassandra', 'Evans' 'Cassandra@gmail.com', 35),
+        ('Cassandra', 'Evans', 'Cassandra@gmail.com', 35),
         ('Thomas', 'Miller', 'Thomas@gmail.com', 45),
         ('Brian', 'Olsen', 'Brian@aol.com', 44)
 
